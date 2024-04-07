@@ -1,5 +1,5 @@
 """
-URL configuration for todo project.
+URL configuration for drfsite project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from users.views import UserAPILogIn, UserAPISignUp
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/log-in/', UserAPILogIn.as_view()),
+    path('api/v1/sign-up/', UserAPISignUp.as_view())
 ]
